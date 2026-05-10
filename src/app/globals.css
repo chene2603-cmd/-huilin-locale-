@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+    --font-chinese: var(--font-noto-sans-sc), 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    --font-japanese: var(--font-noto-sans-jp), 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+  }
+
+  /* 基础字体设置 */
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* 中文字体优化 */
+  :lang(zh), :lang(zh-CN), :lang(zh-TW), :lang(zh-HK) {
+    font-family: var(--font-chinese), var(--font-sans);
+  }
+
+  /* 日文字体优化 */
+  :lang(ja) {
+    font-family: var(--font-japanese), var(--font-sans);
+  }
+
+  /* RTL支持 */
+  [dir="rtl"] {
+    text-align: right;
+  }
+
+  [dir="rtl"] .ltr\:text-left {
+    text-align: right;
+  }
+
+  [dir="rtl"] .ltr\:text-right {
+    text-align: left;
+  }
+
+  /* 滚动条样式 */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+@layer components {
+  /* 语言切换器相关样式 */
+  .rtl {
+    direction: rtl;
+  }
+
+  .ltr {
+    direction: ltr;
+  }
+
+  /* 过渡动画 */
+  .animate-in {
+    animation: animate-in 0.2s ease-out;
+  }
+
+  .fade-in {
+    animation: fade-in 0.2s ease-out;
+  }
+
+  .slide-in-from-top-2 {
+    animation: slide-in-from-top-2 0.2s ease-out;
+  }
+
+  @keyframes animate-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in-from-top-2 {
+    from {
+      transform: translateY(-8px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* 高亮选中文本 */
+  ::selection {
+    background-color: rgba(59, 130, 246, 0.2);
+  }
+
+  /* 焦点样式 */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+
+  /* 语言标志 */
+  .lang-flag {
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@layer utilities {
+  /* 文本溢出处理 */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* 滚动条隐藏 */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 方向相关工具类 */
+  .start-0 {
+    inset-inline-start: 0;
+  }
+
+  .end-0 {
+    inset-inline-end: 0;
+  }
+
+  .text-start {
+    text-align: start;
+  }
+
+  .text-end {
+    text-align: end;
+  }
+
+  /* 字体平滑 */
+  .antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
