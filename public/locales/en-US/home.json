@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "badge": "🚀 New Feature",
+    "title": "Build Global Application Experiences",
+    "subtitle": "One-stop multilingual solution with seamless language switching and localized experience",
+    "cta": {
+      "primary": "Start Free",
+      "secondary": "View Demo"
+    },
+    "supported_languages": "Supports <1>{{count}}</1> languages"
+  },
+  "languages": {
+    "title": "Multilingual Demo",
+    "subtitle": "Switch languages in real-time to see the effect",
+    "current": "Current language"
+  },
+  "examples": {
+    "basic": "Basic Translation Examples",
+    "advanced": "Advanced Feature Examples",
+    "greeting": "Greeting",
+    "welcome": "Welcome message",
+    "description": "App description",
+    "pluralization": "Pluralization",
+    "interpolation": "Interpolation",
+    "formatting": "Formatting",
+    "complex": "Complex Translation Example"
+  },
+  "greeting": "Hello, World!",
+  "welcome_message": "Welcome to our multilingual application!",
+  "app_description": "This is a sample application showcasing i18n best practices.",
+  "messages": {
+    "one": "You have {{count}} message",
+    "other": "You have {{count}} messages"
+  },
+  "user": {
+    "name": "John Doe"
+  },
+  "user_greeting": "Welcome back, {{name}}!",
+  "points": "You have {{points, number}} points",
+  "join_date": "Join date: {{date, date}}",
+  "product_name": "Multilingual Platform",
+  "complex_example": "You're subscribed to <1>{{product}}</1> with <3>{{count}}</3> user seats. Next payment is on <5>{{date, date}}</5> for <7>{{price, currency:USD}}</7>.",
+  "features": {
+    "title": "Core Features",
+    "subtitle": "Features designed for global applications",
+    "real_time": {
+      "title": "Real-time Translation",
+      "description": "Real-time text translation with millisecond response"
+    },
+    "easy_integration": {
+      "title": "Easy Integration",
+      "description": "Simple API for quick integration with existing projects"
+    },
+    "automatic_detection": {
+      "title": "Automatic Detection",
+      "description": "Intelligent detection of user language preferences"
+    },
+    "rtl_support": {
+      "title": "RTL Support",
+      "description": "Perfect support for right-to-left language layouts"
+    }
+  },
+  "stats": {
+    "users": "Users",
+    "countries": "Countries",
+    "languages": "Supported Languages",
+    "uptime": "Uptime"
+  },
+  "usage": {
+    "title": "Usage Guide",
+    "description": "How to use multilingual features in your components:"
+  },
+  "current_locale": "Current locale",
+  "loaded_namespaces": "Loaded namespaces"
+}
