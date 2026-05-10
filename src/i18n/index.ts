@@ -1,26 +1,34 @@
-import { createI18n } from 'vue-i18n';
-import type { I18n, I18nOptions } from 'vue-i18n';
-import zhCN from '@/locales/zh-CN.json';
-import enUS from '@/locales/en-US.json';
+import { derived, writable, type Readable } from 'svelte/store';
+import { browser } from '$app/environment';
 
 // 支持的语言
-export const SUPPORTED_LOCALES = ['zh-CN', 'en-US'] as const;
+export const SUPPORTED_LOCALES = ['zh', 'en'] as const;
 export type SupportedLocale = typeof SUPPORTED_LOCALES[number];
 
 // 默认语言
-export const DEFAULT_LOCALE: SupportedLocale = 'zh-CN';
+export const DEFAULT_LOCALE: SupportedLocale = 'zh';
+
+// 语言映射
+export const LOCALE_MAPPING = {
+  'zh': 'zh-CN',
+  'zh-CN': 'zh',
+  'zh-TW': 'zh',
+  'en': 'en-US',
+  'en-US': 'en',
+  'en-GB': 'en',
+} as const;
 
 // 语言元数据
 export const LANGUAGES = {
-  'zh-CN': {
-    code: 'zh-CN',
+  'zh': {
+    code: 'zh',
     name: '简体中文',
     nativeName: '简体中文',
     direction: 'ltr',
     flag: '🇨🇳',
   },
-  'en-US': {
-    code: 'en-US',
+  'en': {
+    code: 'en',
     name: 'English',
     nativeName: 'English',
     direction: 'ltr',
@@ -30,133 +38,63 @@ export const LANGUAGES = {
 
 // 检测浏览器语言
 export function detectBrowserLanguage(): SupportedLocale {
-  if (typeof window === 'undefined') {
-    return DEFAULT_LOCALE;
-  }
-
+  if (!browser) return DEFAULT_LOCALE;
+  
   const browserLangs = navigator.languages || [navigator.language];
   
   for (const lang of browserLangs) {
-    const normalized = lang.replace('-', '_');
+    const normalized = lang.replace('-', '_').toLowerCase();
     
-    // 精确匹配
-    if (SUPPORTED_LOCALES.includes(normalized as SupportedLocale)) {
-      return normalized as SupportedLocale;
+    // 检查完整代码
+    for (const supported of SUPPORTED_LOCALES) {
+      if (normalized.startsWith(supported)) {
+        return supported;
+      }
     }
     
-    // 前缀匹配
-    const prefix = normalized.split('_')[0];
-    const matched = SUPPORTED_LOCALES.find(locale => 
-      locale.startsWith(prefix)
-    );
-    if (matched) return matched;
+    // 检查映射
+    if (LOCALE_MAPPING[normalized]) {
+      return LOCALE_MAPPING[normalized] as SupportedLocale;
+    }
   }
   
   return DEFAULT_LOCALE;
 }
 
-// 消息资源
-const messages = {
-  'zh-CN': zhCN,
-  'en-US': enUS,
-} as const;
+// 语言存储
+const storedLocale = browser 
+  ? localStorage.getItem('locale') as SupportedLocale
+  : null;
 
-// 创建i18n实例
-export function createI18nInstance(): I18n {
-  const locale = detectBrowserLanguage();
-  const fallbackLocale = DEFAULT_LOCALE;
-  
-  return createI18n<I18nOptions<typeof messages>, SupportedLocale>({
-    legacy: false, // Composition API模式
-    locale,
-    fallbackLocale,
-    messages,
-    globalInjection: true,
-    warnHtmlMessage: false,
-    missingWarn: false,
-    fallbackWarn: false,
-    silentTranslationWarn: process.env.NODE_ENV === 'production',
-    datetimeFormats: {
-      'zh-CN': {
-        short: {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-        },
-        long: {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          weekday: 'long',
-        },
-      },
-      'en-US': {
-        short: {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-        },
-        long: {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          weekday: 'long',
-        },
-      },
-    },
-    numberFormats: {
-      'zh-CN': {
-        currency: {
-          style: 'currency',
-          currency: 'CNY',
-          notation: 'standard',
-        },
-        decimal: {
-          style: 'decimal',
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        },
-      },
-      'en-US': {
-        currency: {
-          style: 'currency',
-          currency: 'USD',
-          notation: 'standard',
-        },
-        decimal: {
-          style: 'decimal',
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        },
-      },
-    },
+export const locale = writable<SupportedLocale>(
+  storedLocale || detectBrowserLanguage()
+);
+
+// 订阅locale变化
+if (browser) {
+  locale.subscribe((value) => {
+    localStorage.setItem('locale', value);
+    document.documentElement.lang = LOCALE_MAPPING[value] || value;
+    document.documentElement.dir = LANGUAGES[value].direction;
   });
 }
 
-// 获取i18n实例
-let i18nInstance: I18n | null = null;
+// 翻译存储
+export const translations = writable<Record<string, any>>({});
 
-export function getI18n(): I18n {
-  if (!i18nInstance) {
-    i18nInstance = createI18nInstance();
+// 加载翻译
+export async function loadTranslations(locale: SupportedLocale) {
+  try {
+    const module = await import(`../lib/locales/${locale}.json`);
+    translations.set(module.default);
+  } catch (error) {
+    console.error(`Failed to load translations for ${locale}:`, error);
   }
-  return i18nInstance;
 }
 
-// 切换语言
-export async function changeLanguage(locale: SupportedLocale): Promise<void> {
-  const i18n = getI18n();
-  
-  if (i18n.global.locale.value === locale) {
-    return;
-  }
-  
-  // 这里可以添加动态加载逻辑
-  i18n.global.locale.value = locale;
-  
-  // 更新HTML属性
-  if (typeof document !== 'undefined') {
-    document.documentElement.lang = locale;
-    document.documentElement.dir = LANGUAGES[locale].direction;
-  }
+// 初始化加载
+if (browser) {
+  locale.subscribe((loc) => {
+    loadTranslations(loc);
+  });
 }
