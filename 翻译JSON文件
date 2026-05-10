@@ -1,0 +1,25 @@
+// /public/locales/ja-JP/common.json
+{
+  "metadata": {
+    "title": "多言語アプリケーション",
+    "description": "完全なi18nサポートを備えたNext.jsアプリケーション",
+    "keywords": "i18n, 国際化, 多言語, Next.js",
+    "author": "あなたのチーム",
+    "og_title": "多言語アプリケーション",
+    "og_description": "完全なi18nサポートを備えたNext.jsアプリケーション"
+  },
+  "brand": "i18nアプリ",
+  "loading": "読み込み中...",
+  "error": {
+    "generic": "エラーが発生しました",
+    "not_found": "ページが見つかりません",
+    "go_home": "ホームに戻る"
+  },
+  "nav": {
+    "home": "ホーム",
+    "about": "概要",
+    "features": "機能",
+    "contact": "お問い合わせ"
+  }
+  // ... 其他翻译
+}
