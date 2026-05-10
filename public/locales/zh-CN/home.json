@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "badge": "🚀 新功能上线",
+    "title": "构建全球化的应用体验",
+    "subtitle": "一站式多语言解决方案，支持无缝语言切换和本地化体验",
+    "cta": {
+      "primary": "免费开始",
+      "secondary": "查看演示"
+    },
+    "supported_languages": "支持 <1>{{count}}</1> 种语言"
+  },
+  "languages": {
+    "title": "多语言演示",
+    "subtitle": "实时切换语言查看效果",
+    "current": "当前语言"
+  },
+  "examples": {
+    "basic": "基础翻译示例",
+    "advanced": "高级功能示例",
+    "greeting": "问候语",
+    "welcome": "欢迎消息",
+    "description": "应用描述",
+    "pluralization": "复数形式",
+    "interpolation": "插值",
+    "formatting": "格式化",
+    "complex": "复杂翻译示例"
+  },
+  "greeting": "你好，世界！",
+  "welcome_message": "欢迎来到我们的多语言应用！",
+  "app_description": "这是一个展示国际化最佳实践的示例应用。",
+  "messages": {
+    "one": "你有 {{count}} 条消息",
+    "other": "你有 {{count}} 条消息"
+  },
+  "user": {
+    "name": "张三"
+  },
+  "user_greeting": "欢迎回来，{{name}}！",
+  "points": "你有 {{points, number}} 积分",
+  "join_date": "加入日期：{{date, date}}",
+  "product_name": "多语言平台",
+  "complex_example": "您已订阅 <1>{{product}}</1>，包含 <3>{{count}}</3> 个用户席位。下次付款日期为 <5>{{date, date}}</5>，金额为 <7>{{price, currency:CNY}}</7>。",
+  "features": {
+    "title": "核心特性",
+    "subtitle": "为全球化应用设计的功能",
+    "real_time": {
+      "title": "实时翻译",
+      "description": "支持实时文本翻译，毫秒级响应"
+    },
+    "easy_integration": {
+      "title": "易于集成",
+      "description": "简单的API接口，快速接入现有项目"
+    },
+    "automatic_detection": {
+      "title": "自动检测",
+      "description": "智能识别用户语言偏好"
+    },
+    "rtl_support": {
+      "title": "RTL支持",
+      "description": "完美支持从右到左语言布局"
+    }
+  },
+  "stats": {
+    "users": "用户数",
+    "countries": "国家数",
+    "languages": "支持语言",
+    "uptime": "运行时间"
+  },
+  "usage": {
+    "title": "使用方法",
+    "description": "在你的组件中使用多语言功能："
+  },
+  "current_locale": "当前区域设置",
+  "loaded_namespaces": "已加载命名空间"
+}
