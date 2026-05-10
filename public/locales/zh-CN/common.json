@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "title": "多语言应用",
+    "description": "支持完整i18n功能的Next.js应用",
+    "keywords": "i18n, 国际化, 多语言, Next.js",
+    "author": "你的团队",
+    "og_title": "多语言应用",
+    "og_description": "支持完整i18n功能的Next.js应用"
+  },
+  "brand": "i18n应用",
+  "loading": "加载中...",
+  "error": {
+    "generic": "发生错误",
+    "not_found": "页面未找到",
+    "go_home": "返回首页"
+  },
+  "nav": {
+    "home": "首页",
+    "about": "关于",
+    "features": "功能",
+    "contact": "联系"
+  },
+  "cta": {
+    "get_started": "开始使用",
+    "learn_more": "了解更多"
+  },
+  "footer": {
+    "tagline": "构建全球化的Web应用",
+    "copyright": "保留所有权利。",
+    "product": {
+      "title": "产品",
+      "item1": "功能",
+      "item2": "定价",
+      "item3": "API",
+      "item4": "文档"
+    },
+    "company": {
+      "title": "公司",
+      "item1": "关于我们",
+      "item2": "博客",
+      "item3": "招聘",
+      "item4": "新闻"
+    },
+    "resources": {
+      "title": "资源",
+      "item1": "帮助中心",
+      "item2": "社区",
+      "item3": "合作伙伴",
+      "item4": "状态"
+    },
+    "legal": {
+      "title": "法律",
+      "item1": "隐私",
+      "item2": "条款",
+      "item3": "安全",
+      "item4": "Cookie"
+    }
+  },
+  "social": {
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "linkedin": "领英",
+    "youtube": "YouTube"
+  },
+  "language": {
+    "en": "英语",
+    "zh": "中文",
+    "ja": "日语"
+  },
+  "choose_language": "选择语言",
+  "switch_to_language": "切换到{{language}}",
+  "select_language": "选择语言",
+  "help_translate": "帮助翻译"
+}
