@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "title": "Multilingual Application",
+    "description": "A Next.js application with full i18n support",
+    "keywords": "i18n, internationalization, multilingual, Next.js",
+    "author": "Your Team",
+    "og_title": "Multilingual Application",
+    "og_description": "A Next.js application with full i18n support"
+  },
+  "brand": "i18n App",
+  "loading": "Loading...",
+  "error": {
+    "generic": "An error occurred",
+    "not_found": "Page not found",
+    "go_home": "Go back home"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "features": "Features",
+    "contact": "Contact"
+  },
+  "cta": {
+    "get_started": "Get Started",
+    "learn_more": "Learn More"
+  },
+  "footer": {
+    "tagline": "Building global web applications",
+    "copyright": "All rights reserved.",
+    "product": {
+      "title": "Product",
+      "item1": "Features",
+      "item2": "Pricing",
+      "item3": "API",
+      "item4": "Documentation"
+    },
+    "company": {
+      "title": "Company",
+      "item1": "About",
+      "item2": "Blog",
+      "item3": "Careers",
+      "item4": "Press"
+    },
+    "resources": {
+      "title": "Resources",
+      "item1": "Help Center",
+      "item2": "Community",
+      "item3": "Partners",
+      "item4": "Status"
+    },
+    "legal": {
+      "title": "Legal",
+      "item1": "Privacy",
+      "item2": "Terms",
+      "item3": "Security",
+      "item4": "Cookies"
+    }
+  },
+  "social": {
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "youtube": "YouTube"
+  },
+  "language": {
+    "en": "English",
+    "zh": "Chinese",
+    "ja": "Japanese"
+  },
+  "choose_language": "Choose language",
+  "switch_to_language": "Switch to {{language}}",
+  "select_language": "Select language",
+  "help_translate": "Help translate"
+}
