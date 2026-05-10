@@ -1,0 +1,18 @@
+{
+  "loading": "読み込み中...",
+  "choose_language": "言語を選択",
+  "nav": {
+    "home": "ホーム",
+    "about": "概要",
+    "features": "機能",
+    "contact": "お問い合わせ"
+  },
+  "direction": "方向",
+  "welcome": "アプリへようこそ",
+  "current_language": "現在の言語：{{lang}}",
+  "items_count_zero": "アイテムなし",
+  "items_count_one": "1 個のアイテム",
+  "items_count_other": "{{count}} 個のアイテム",
+  "today_date": "今日は {{date, YYYY-MM-DD}} です",
+  "price": "価格：{{val, currency}}"
+}
