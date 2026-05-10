@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-i18n-title="common.metadata.title">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" data-i18n="common.metadata.description">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/i18n.js" defer></script>
+  <script src="/js/app.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">
+        <span data-i18n="common.brand">i18n应用</span>
+      </div>
+      
+      <div class="nav-links">
+        <a href="/" data-i18n="common.nav.home">首页</a>
+        <a href="/about" data-i18n="common.nav.about">关于</a>
+      </div>
+      
+      <div class="language-switcher">
+        <button 
+          class="language-btn active" 
+          data-locale="zh-CN"
+          data-i18n-aria-label="common.switch_to_chinese"
+        >
+          中文
+        </button>
+        <button 
+          class="language-btn" 
+          data-locale="en-US"
+          data-i18n-aria-label="common.switch_to_english"
+        >
+          English
+        </button>
+      </div>
+    </nav>
+  </header>
+  
+  <main class="main">
+    <section class="hero">
+      <h1 data-i18n="home.hero.title">构建全球化的应用体验</h1>
+      <p data-i18n="home.hero.subtitle">一站式多语言解决方案</p>
+      <button class="cta-btn" data-i18n="home.hero.cta.primary">免费开始</button>
+    </section>
+    
+    <section class="demo">
+      <h2 data-i18n="home.demo.title">多语言演示</h2>
+      
+      <div class="translation-examples">
+        <div class="example">
+          <h3 data-i18n="home.examples.greeting">问候语：</h3>
+          <p data-i18n="home.greeting">你好，世界！</p>
+        </div>
+        
+        <div class="example">
+          <h3 data-i18n="home.examples.interpolation">插值：</h3>
+          <p data-i18n="home.user_greeting" data-i18n-vars='{"name": "张三"}'>
+            欢迎回来，{{name}}！
+          </p>
+        </div>
+        
+        <div class="example">
+          <h3 data-i18n="home.examples.pluralization">复数形式：</h3>
+          <p>
+            <span data-i18n="home.messages" data-i18n-vars='{"count": 0}'>
+              你有 {{count}} 条消息
+            </span>
+            <br>
+            <span data-i18n="home.messages" data-i18n-vars='{"count": 1}'>
+              你有 {{count}} 条消息
+            </span>
+            <br>
+            <span data-i18n="home.messages" data-i18n-vars='{"count": 5}'>
+              你有 {{count}} 条消息
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="footer">
+    <p>
+      <span data-i18n="common.footer.copyright">© 2024 保留所有权利</span>
+    </p>
+  </footer>
+</body>
+</html>
